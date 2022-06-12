@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <form method="POST" action="{% url 'searches:get_results' %}" >
+        {% csrf_token %}
+        <input name="query-item" type="text" placeholder="type Part number or keyword">
+        <input type="submit" value="search">
+    </form>
+</body>
+</html>
