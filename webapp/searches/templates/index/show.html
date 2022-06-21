@@ -3,8 +3,8 @@
 {% block title %}Consultas{% endblock %}
 
 {% block content %}
-    {% csrf_token %}
-    <form method="POST" action="{% url 'searches:get_results' %}">
+    <form method="POST" action="{% url 'searches:create' %}">
+        {% csrf_token %}
         <input name="query-item" type="text" placeholder="type Part number or keyword">
         <input type="submit" value="search">
     </form>
