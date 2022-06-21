@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from .utils import ip_address
 
 # Create your views here.
 from searches.models import Search
@@ -16,9 +17,9 @@ def search(request):
 
 def create(request):
     if request.POST:
+        # breakpoint()
         new_search = Search(
             keywords=request.POST["query-item"],
-            customer_ip="0.0.0.0")
+            customer_ip=ip_address(request))
         new_search.save()
-        # breakpoint()
         return redirect(to="searches:index")
