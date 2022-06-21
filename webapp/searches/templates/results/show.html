@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "../../templates/base.html" %}
+
+{% block title %}Results{% endblock %}
+{% block content %}
     <div>
         <label for="status-container">Status:</label>
         <div id="status-container">
@@ -17,5 +14,4 @@
             {{ message }}
         </div>
     </div>
-</body>
-</html>
+{% endblock %}
