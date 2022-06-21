@@ -8,4 +8,21 @@
         <input name="query-item" type="text" placeholder="type Part number or keyword">
         <input type="submit" value="search">
     </form>
+
+    <div>
+        <h2>Consultas realizadas</h2>
+        <ul>
+            {% for i in items %}
+                <li>
+                    <div>
+                        <label>Keywords</label>
+                        <p>{{ i.keywords }}</p>
+                        <p>issued at: {{ i.issued_at }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+
+        </ul>
+    </div>
+
 {% endblock %}
