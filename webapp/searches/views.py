@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+
+from .decorators.fetch_request_ipaddress import fetch_request_ipaddress
 from .utils import ip_address
 
 # Create your views here.
@@ -15,11 +17,11 @@ def search(request):
                   context={'status': 200, 'message': f'your message: {request.POST["query-item"]}'})
 
 
+@fetch_request_ipaddress
 def create(request):
     if request.POST:
-        # breakpoint()
         new_search = Search(
             keywords=request.POST["query-item"],
-            customer_ip=ip_address(request))
+            customer_ip=request.ip_address)
         new_search.save()
         return redirect(to="searches:index")
