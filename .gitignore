@@ -2,3 +2,6 @@
 
 **/.venv/**
 /webapp/.idea/
+
+venv/
+**/__pycache__/**
