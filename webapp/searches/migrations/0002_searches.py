@@ -5,9 +5,8 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    initial = True
-
     dependencies = [
+        ('users', '0001_create_user_profile')
     ]
 
     operations = [
