@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect
 
 from .decorators.fetch_request_ipaddress import fetch_request_ipaddress
-from .utils import ip_address
 
 # Create your views here.
-from searches.models import Search
+from .models import Search
 
 
 def index(request):
