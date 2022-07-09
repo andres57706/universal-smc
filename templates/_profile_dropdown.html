@@ -1,0 +1,43 @@
+<style>
+    .dropdown-menu {
+        position: absolute;
+        display: none;
+        {#background-color: #212529!important;#}
+    }
+    .dropdown-item {
+        {#color: #ddd !important;#}
+    }
+    .dropdown:hover .dropdown-toggle {
+        opacity: 0;
+    }
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        animation: fadeIn 1s;
+    }
+    {#.dropdown-menu .dropdown-item:hover { background-color: #414141 !important;}#}
+
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+</style>
+<div class="d-flex justify-content-end dropdown">
+    <img src="../static/profile-avatar.png"
+         id="profile-pic-dropdown-toogle"
+         class="rounded-circle w-25 h-25 dropdown-toggle"
+         alt="..."
+         aria-expanded="false">
+    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="profile-pic-dropdown-toogle">
+        <li class="dropdown-header d-flex justify-content-end">
+            <img src="../static/profile-avatar.png"
+                 class="rounded-circle w-25 h-50"
+                 alt="..."
+                 aria-expanded="false">
+        </li>
+        <li><a class="dropdown-item" href="#">Account</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="{% url "users:signout" %}">Logout</a></li>
+    </ul>
+
+</div>
