@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}New account{% endblock %}
+
+{% block content %}
+    <div class="flex-column align-items-center">
+        <h3 class="text-center mb-5">Welcome to Universal SMC!</h3>
+        <form method="post" class="m-3">
+            {% csrf_token %}
+            <div class="row">
+                <div class="offset-4 col-4 form-floating mb-3">
+                    {{ form.email }}
+                    <label for="id_email">{{ form.email.label }}</label>
+                    {% if 'email' in form.errors %}
+                        <div class="text-danger">
+                            {{ form.errors.email }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-4 col-4 form-floating mb-3">
+                    {{ form.password1 }}
+                    <label for="id_password1">{{ form.password1.label }}</label>
+                    {% if 'password1' in form.errors %}
+                        <div class="text-danger">
+                            {{ form.errors.password1 }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-4 col-4 form-floating mb-3">
+                    {{ form.password2 }}
+                    <label for="id_password2">{{ form.password2.label }}</label>
+                    {% if 'password2' in form.errors %}
+                        <div class="text-danger">
+                            {{ form.errors.password2 }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% if form.non_field_errors %}
+                <div class="d-flex justify-content-center offset-4 col-4">
+                    <div class="text-danger">
+                        {{ form.non_field_errors }}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="d-flex justify-content-evenly align-items-center offset-4 col-4 mt-3">
+                <div>
+                    <button class="btn btn-primary" type="submit">Create</button>
+                </div>
+            </div>
+            <div class="mt-3 d-flex justify-content-center offset-4 col-4">
+                <p>
+                    Already have an account? <a href="{% url 'users:signin' %}">Sign in</a>
+                </p>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+

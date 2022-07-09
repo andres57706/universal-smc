@@ -1,6 +1,6 @@
-from django.urls import path, include
+from django.urls import path
 
-from searches import views
+from . import views
 
 app_name = 'searches'
 urlpatterns = [

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}
+    Sing in
+{% endblock %}
+{% block content %}
+    <div class="flex-column align-items-center">
+        <h3 class="text-center mb-5">Sign in on Universal SMC</h3>
+        <form method="post" class="m-3">
+            {% csrf_token %}
+            <div class="row">
+                <div class="offset-4 col-4 form-floating mb-3">
+                    {{ form.email }}
+                    <label for="id_email">{{ form.email.label }}</label>
+                    {% if 'email' in form.errors %}
+                        <div class="text-danger">
+                            {{ form.errors.email }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-4 col-4 form-floating mb-3">
+                    {{ form.password }}
+                    <label for="id_password">{{ form.password.label }}</label>
+                    {% if 'password' in form.errors %}
+                        <div class="text-danger">
+                            {{ form.errors.password }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% if form.non_field_errors %}
+                <div class="d-flex justify-content-center offset-4 col-4">
+                    <div class="text-danger">
+                        {{ form.non_field_errors }}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="d-flex justify-content-evenly align-items-center offset-4 col-4 mt-3">
+                <div>
+                    <button class="btn btn-success" type="submit">Sign in</button>
+                </div>
+                <div>
+                    <a class="text-decoration-none" href="#">Forgot password</a>
+                </div>
+            </div>
+            <div class="mt-3 d-flex justify-content-center offset-4 col-4">
+                <p class="text-center mt-2">New here? <a class="text-decoration-none"
+                                                         href="{% url "users:signup" %}">Create an account</a>
+                </p>
+            </div>
+        </form>
+    </div>
+{% endblock %}

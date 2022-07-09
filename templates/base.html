@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include "styles.html" %}
     <title>
         {% block title %}
         {% endblock %}
     </title>
 </head>
 <body>
+{% include "scripts.html" %}
 {% include "menu.html" %}
-<div id="content">
+<div id="content" class="container mt-3">
     {% block content %}
     {% endblock %}
 </div>
